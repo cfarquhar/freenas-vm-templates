@@ -1,0 +1,49 @@
+{
+    "template": {
+        "name": "ubuntu-server-16.04.2", 
+        "author": "Charles Farquhar <cfarquhar@cfarquhar.com>", 
+        "description": "Ubuntu Server 16.04",
+        "created_at": {
+            "$date": "2017-03-19T22:54:42"
+        }, 
+        "updated_at": {
+            "$date": "2017-03-19T22:54:42"
+        }, 
+        "fetch": [
+            {
+                "name": "os", 
+                "url": "https://storage.googleapis.com/cfarquhar_static/xenial-template_os.raw.gz", 
+                "sha256": "80754410f7b36ece960554f859d1632dce491322a070ca8a63901cbff9f54c47",
+                "size": 1349316204
+            }
+        ]
+    }, 
+    "config": {
+        "ncpus": 2, 
+        "bootloader": "GRUB", 
+        "memsize": 2048,
+        "minmemsize": 1024,
+        "boot_device": "os", 
+        "boot_partition": "msdos1"
+    }, 
+    "devices": [
+        {
+            "type": "DISK", 
+            "name": "os", 
+            "properties": {
+                "size": 1349316204, 
+                "mode": "AHCI", 
+                "source": "os"
+            }
+        }, 
+        {
+            "type": "NIC", 
+            "name": "nic", 
+            "properties": {
+                "mode": "BRIDGED", 
+                "bridge": "default"
+            }
+        }
+    ], 
+    "guest_type": "linux64"
+}
